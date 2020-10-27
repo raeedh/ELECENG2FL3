@@ -1,0 +1,45 @@
+\documentclass[12pt]{article}
+\usepackage{parskip}
+\usepackage{enumitem}
+\usepackage{amsmath,mathtools}
+\usepackage{textcomp}
+\usepackage[legalpaper, margin=1in]{geometry}
+\title{ELECENG 2FL3 ASSIGNMENT 6}
+\author{Raeed Hassan \\ hassam41 \\ McMaster University}
+\begin{document}
+\maketitle
+\pagebreak
+\setcounter{section}{1}
+\section{Problem Statement}
+A finite uniform linear charge $\rho L=$ 4 nC/m lies in the $z$ = 0 plane. For an  example  plot, see Figure 3.4 on p. 20 of the MATLAB\textsuperscript{\textregistered} Manual. The coordinates of the two ends of the line charge, $A$ and $B$, are given in Table 1. Find \textbf{E} at $(0, 0 ,0)$.
+\section{Variation}
+\begin{center}
+\begin{tabular}{c|c|c} \hline \hline
+    \# & $A$(m) & $B$(m) \\ \hline
+    0 & 5, 0, 0 & 0, 5, 0 \\ \hline \hline
+\end{tabular}
+\end{center}
+\section*{Solution}
+\[
+\begin{aligned}
+    E_{\parallel} \\
+    E_{\perp} \\
+    \vec{D_p} &= \hat{a_L} \times (\vec{AP} \times \hat{a_L}) \\
+    \vec{AP} &= -5\hat{a_x} \\
+    \hat{a_L} &= \frac{\vec{AB}}{|\vec{AB}|} = \frac{-5\hat{a_x}+5\hat{a_y}}{\sqrt{50}} = \frac{-\hat{a_x}+\hat{a_y}}{\sqrt{2}} \\
+    \vec{AP} \times \hat{a_L} &= (-5\hat{a_x}) \times \frac{-\hat{a_x}+\hat{a_y}}{\sqrt{2}} = \frac{-5\hat{a_z}}{\sqrt{2}} \\
+    \vec{D_p} = \hat{a_L} \times (\vec{AP} \times \hat{a_L}) &= \frac{-\hat{a_x}+\hat{a_y}}{\sqrt{2}} \times \frac{-5\hat{a_z}}{\sqrt{2}} \\
+    &= \frac{-5\hat{a_y}-5\hat{a_x}}{2} \\
+    \hat{a_\perp} &= \frac{\vec{D_p}}{|\vec{D_p}|} = \frac{-\hat{a_x}-\hat{a_y}}{\sqrt{2}} \\
+    \theta_1 &= 45^{\circ}, \theta_2 = 135^{\circ} \\
+    E_{\parallel} &= \frac{\rho_l}{4\pi\epsilon_0}\cdot\frac{1}{\pi}\cdot(\sin{135^{\circ}}-\sin{45^{\circ}}) = 0 \\
+    E_{\perp} &= \frac{\rho_l}{4\pi\epsilon_0}\cdot\frac{1}{\pi}\cdot(\cos{45^{\circ}}-\cos{135^{\circ}}) \\
+    &= \frac{\sqrt{2} \times \rho_l}{4\pi\epsilon_0}\cdot\frac{1}{r} \\
+    \vec{E}(0,0,0) &= \frac{\sqrt{2}\rho_l}{4\pi\epsilon_0r} \hat{a_\perp} \\
+    r &= |\vec{D_p}|, \hat{a_\perp} = \frac{\vec{D_p}}{|\vec{D_p}|} \\
+    \vec{E}(0,0,0) &= \frac{\sqrt{2}\rho_l}{4\pi\epsilon_0}\cdot\frac{\vec{D_p}}{|\vec{D_p}|^2} \\
+    &= 9 \times 10^9 \cdot \sqrt{2} \cdot 4 \times 10^{-9} \cdot (\frac{-\hat{a_x}-\hat{a_y}}{5}) \\
+    \Aboxed{\vec{E}(0,0,0) &= \frac{36\sqrt{2}}{5}(-\hat{a_x}-\hat{a_y})~,~V/m}
+\end{aligned}
+\]
+\end{document}

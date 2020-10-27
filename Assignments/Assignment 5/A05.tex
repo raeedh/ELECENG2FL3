@@ -1,0 +1,48 @@
+\documentclass[12pt]{article}
+\usepackage{parskip}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage[legalpaper, margin=1in]{geometry}
+\begin{document}
+    \begin{center}
+        \textbf{\Large{ELECENG 2FL3 ASSIGNMENT 5}} \\
+        \vspace{2mm}
+        \large{Raeed Hassan} \\
+        McMaster University
+    \end{center}
+\hrulefill
+
+\section*{Analytical Problem}
+\begin{enumerate}[label=\alph*)]
+    \item The reflection coefficient $\Gamma$ at the load is equal to $0.0112 - 0.1051j$.
+    \[
+    \begin{aligned}
+        \Gamma &= \frac{Z_L - Z_0}{Z_L + Z_0} \\
+        Z_L &= R_s + j\omega L_s + \frac{1}{j\omega C_s} \\
+        &= 50 + j\cdot2\cdot\pi\cdot3\cdot10^9\cdot1.0\cdot10^{-9} + \frac{1}{j\cdot2\cdot\pi\cdot3\cdot10^9\cdot1.8\cdot10^{-12}} \\
+        &= 50 - 10.6236j \\
+        \Gamma &= \frac{(50 - 10.6236j) - 50}{(50 - 10.6236j) + 50} \\
+        &= \frac{-10.6236j}{100-10.6236j} \\
+        \Gamma &= 0.0112 - 0.1051j
+    \end{aligned}
+    \]
+    \item The SWR in the line is equal to $1.2362$.
+    \[
+    \begin{aligned}
+        SWR &= \frac{1+|\Gamma|}{1-|\Gamma|} \\
+        &= \frac{1+|0.0112 - 0.1051j|}{1-|0.0112 - 0.1051j|} \\
+        &= 1.2362
+    \end{aligned}    
+    \]
+    \item The input impedance $Z_{in}$ is equal to $40.4543 + 0.4404j$. 
+    \[
+    \begin{aligned}
+        Z_{in} &= Z_0\cdot\left[\frac{Z_L + jZ_0\tan(\beta L)}{Z_0 + jZ_L\tan(\beta L)}\right] \\
+        &= 50 \cdot \left[ \frac{(50 - 10.6236j) + j50\tan(\frac{2\pi\cdot3\cdot10^9}{299792458}\cdot 0.2136)}{50 + j(50 - 10.6236j)\tan(\frac{2\pi\cdot3\cdot10^9}{299792458}\cdot 0.2136)} \right] \\
+        &= 40.4543 + 0.4404j
+    \end{aligned}    
+    \]
+\end{enumerate}
+
+
+\end{document}

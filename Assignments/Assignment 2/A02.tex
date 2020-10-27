@@ -1,0 +1,194 @@
+\documentclass[12pt]{article}
+\usepackage{parskip}
+\usepackage[legalpaper, margin=1in]{geometry}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{multicol}
+\setcounter{section}{1}
+\begin{document}
+\begin{center}
+    \textbf{\Large{ELECENG 2FL3 ASSIGNMENT 2}} \\
+    \vspace{2mm}
+    \large{Raeed Hassan} \\
+    McMaster University
+\end{center}
+\hrulefill
+
+Variation \#00:
+$$ A_1(A_1x,A_1y,A_1z) = (0.40,0.70,0.00) $$
+$$ A_2(A_2x,A_2y,A_2z) = (0.30,0.10,0.10) $$
+$$ P(x,y,z) = (2.80,3.70,4.60) $$
+\section{Problem Statement}
+
+\subsection{Rectangle Coordinates}
+\begin{enumerate}[label=\alph*)]
+    \item the dot product $A_1 \cdot A_2$
+    \[
+    \begin{aligned}
+        A_1 \cdot A_2 &= A_1\hat{x} \cdot A_2\hat{x} + A_1\hat{y} + A_2\hat{y} + A_1\hat{z} + A_2\hat{z} \\
+        &= (0.40\cdot 0.30) + (0.70 \cdot 0.10) + (0.00 \cdot 0.10) \\
+        &= 0.12 + 0.07 + 0.00 \\
+        &= 0.19
+    \end{aligned}
+    \]
+    \item the projection of $A_1$ onto $A_2$ 
+    \[
+    \begin{aligned}
+        proj_{A_2}A_1 &= \frac{A_1 \cdot A_2}{A_2 \cdot A_2} A_2 \\
+        &= \frac{0.19}{(0.30)^2+(0.10)^2+(0.10)^2}(0.30\hat{x}+0.10\hat{y}+0.10\hat{z}) \\
+        &= 0.5182\hat{x}+0.1727\hat{y}+0.1727\hat{z}
+    \end{aligned}    
+    \]
+    \item the angle between $A_1$ and $A_2$
+    \[
+    \begin{aligned}
+        \cos\theta &= \frac{A_1 \cdot A_2}{\lVert A_1 \rVert \lVert A_2 \rVert} \\
+        \theta &= \cos^{-1}\left(\frac{A_1 \cdot A_2}{\lVert A_1 \rVert \lVert A_2 \rVert}\right) \\
+        &= \cos^{-1}\left(\frac{0.19}{\sqrt{(0.40)^2+(0.70)^2+(0.00)^2} \sqrt{(0.30)^2+(0.10)^2+(0.10)^2}}\right) \\
+        &= 0.7805 \ \text{rad}
+    \end{aligned}
+    \]
+    \item the cross product $A_1 \times A_2$
+    \[
+    \begin{aligned}
+        A_1 \times A_2 &= A_1\hat{x} \times A_2\hat{y} + A_1\hat{x} \times A_2\hat{z} + A_1\hat{y} \times A_2\hat{x} + A_1\hat{y} \times A_2\hat{z} \\ &+ A_1\hat{z} \times A_2\hat{x} + A_1\hat{z} \times A_2\hat{y} \\
+        &= 0.40\hat{x} \times 0.10\hat{y} + 0.40\hat{x} \times 0.10\hat{z} + 0.70\hat{y} \times 0.30\hat{x} \\ &+ 0.70\hat{y} \times 0.10\hat{z} + 0.00\hat{z} \times 0.30\hat{x} + 0.00\hat{z} \times 0.10\hat{y} \\
+        &= 0.04\hat{z} - 0.04\hat{y} - 0.21\hat{z} + 0.07\hat{x} + 0 + 0 \\
+        &= 0.07\hat{x} - 0.04\hat{y} - 0.17\hat{z}
+    \end{aligned}
+    \]
+    \item the distance from the origin to the line defined by $A_1$ at $P$
+    \[
+    \begin{aligned}
+        \overrightarrow{A_1O} &= \overrightarrow{OP} + \overrightarrow{A_1P} \\
+        &= (2.80-0.40)\hat{x} + (3.70-0.70)\hat{y} + (4.60-0.00)\hat{z} \\
+        &= 2.40\hat{x} + 3.00\hat{y} + 4.60\hat{z} \\
+        \overrightarrow{A_1P} &= -A_1 \\
+        &= -0.40\hat{x} - 0.70\hat{y} \\
+        \overrightarrow{d} &= \overrightarrow{A_1O}\times\frac{\overrightarrow{A_1P}}{\lvert\overrightarrow{A1_P}\rvert} \\
+        &= 2.40\hat{x}+3.00\hat{y}+4.60\hat{z}\times\frac{-0.40\hat{x}-0.70\hat{y}}{\lvert-0.40\hat{x}-0.70\hat{y}\rvert}\\
+        d &= \lvert\overrightarrow{d}\rvert \\
+        &= 4.6384 \ \text{units}
+    \end{aligned}
+    \]
+    \item the distance from the origin to the plane defined by $A_1$ and $A_2$ at P
+    \[
+    \begin{aligned}
+        D &= \lvert\overrightarrow{A_1O} \cdot \hat{a}_n \rvert \\
+        \hat{a}_n &= \frac{A_1 \times A_2}{\lvert A_1 \times A_2\rvert} \\
+        &= \lvert 2.40\hat{x} + 3.00\hat{y} + 4.60\hat{z} \cdot \frac{0.07\hat{x}-0.04\hat{y}-0.17\hat{z}}{\lvert 0.07\hat{x}-0.04\hat{y}-0.17\hat{z} \rvert}\rvert \\
+        &= 3.9012 \ \text{units}
+    \end{aligned}
+    \]
+\end{enumerate}
+
+\subsection{Cyclindrical Coordinates}
+Transform the rectangular coordinates of P into cylindrical ones. $$ P(x,y,z) = (2.80,3.70,4.60) $$
+\[
+    \begin{aligned}
+        r &= \sqrt{x^2+y^2} & \Phi &= \tan^{-1}\left(y/x\right) & z &= z \\
+        &=\sqrt{2.80^2+3.70^2} & &=\tan^{-1}\left(3.70/2.80\right) & &=4.60 \\
+        &=4.64 & &=0.9230 \ \text{rad}
+    \end{aligned}
+\]
+$$ P(r,\Phi,z) = 4.64\hat{r} + 0.923\hat{\Phi} + 4.60\hat{z}$$
+Transform $A_1$ and $A_2$ into cylindrical-component form.
+\begin{multicols}{2}
+    $$ A_1(A_1x, A_1y, A_1z) = (0.40,0.70,0.00) $$
+    \[
+        \begin{aligned}
+            r &= \sqrt{x^2+y^2} \\
+            &=\sqrt{0.40^2+0.70^2} \\
+            &=0.8062 \\
+            \Phi &= \tan^{-1}\left(y/x\right) \\
+            &=\tan^{-1}\left(0.70/0.40\right) \\
+            &=1.0517 \ \text{rad} \\
+            z &= z \\
+            &=0.00
+        \end{aligned}
+    \]
+    \columnbreak \\
+    $$ A_2(A_2x, A_2y, A_2z) = (0.30,0.10,0.10) $$
+    \[
+        \begin{aligned}
+            r &= \sqrt{x^2+y^2} \\
+            &=\sqrt{0.30^2+0.10^2} \\
+            &=0.3162 \\
+            \Phi &= \tan^{-1}\left(y/x\right) \\
+            &=\tan^{-1}\left(0.10/0.30\right) \\
+            &=0.3218 \ \text{rad} \\
+            z &= z \\
+            &=0.10
+        \end{aligned}
+    \]
+\end{multicols}
+$$ A_1(A_1r, A_1\Phi, A_1z) \\ = 0.8062\hat{r} + 1.0517\hat{\Phi} $$
+$$ A_2(A_2r, A_2\Phi, A_2z) = 0.3162\hat{r} + 0.3218\hat{\Phi} + 0.10\hat{z}$$
+Finally, find the dot product between the so transformed vectors. Is it the same as the dot product
+obtained in the rectangular coordinate system?
+\[
+\begin{aligned}
+    A_1 \cdot A_2 &= A_1\hat{r} \cdot A_2\hat{r} \cdot \cos(A_1\hat{\Phi} - A_2\hat{\Phi}) + A_1\hat{z} \cdot A_2\hat{z} \\
+    &= (0.8062 \cdot 0.3162 \cdot \cos(1.0517 - 0.3218)) + (0.00 \cdot 0.10) \\
+    &= 0.19
+\end{aligned}
+\]
+The dot product obtained in the rectangular coordinate system is the same dot product that was calculated in the rectangle coordinate system.
+\subsection{Spherical Coordinates}
+Transform the rectangular coordinates of P into spherical ones. $$ P(x,y,z) = (2.80,3.70,4.60) $$
+\[
+    \begin{aligned}
+        R &= \sqrt{x^2+y^2+z^2} & \theta &= \tan^{-1}\left(\frac{\sqrt{x^2+y^2}}{z}\right) & \Phi &= \tan^{-1}\left(y/x\right) \\
+        &=\sqrt{2.80^2+3.70^2+4.60^2} & &=\tan^{-1}\left(\frac{\sqrt{2.80^2+3.70^2}}{4.60}\right) & &=\tan^{-1}\left(3.70/2.80\right) \\
+        &=\sqrt{42.69} & &= 0.7897 \ \text{rad} & &=0.9230 \ \text{rad} \\
+        &= 6.5338
+    \end{aligned}
+\]
+$$ P(R,\theta,\Phi) = 6.5338\hat{R} + 0.7897\hat{\theta} + 0.923\hat{\Phi}$$
+Transform $A_1$ and $A_2$ into spherical-component form.
+\begin{multicols}{2}
+    $$ A_1(A_1x, A_1y, A_1z) = (0.40,0.70,0.00) $$
+    \[
+        \begin{aligned}
+            R &= \sqrt{x^2+y^2+z^2} \\
+            &=\sqrt{0.40^2+0.70^2+0.00^2} \\
+            &=0.8062 \\
+            \theta &= \tan^{-1}\left(\frac{\sqrt{x^2+y^2}}{z}\right) \\
+            &= \tan^{-1}\left(\frac{\sqrt{0.40^2+0.70^2}}{0.00}\right) \\
+            &= \pi/2 \ \text{rad} \\
+            \Phi &= \tan^{-1}\left(y/x\right) \\
+            &=\tan^{-1}\left(0.70/0.40\right) \\
+            &=1.0517 \ \text{rad}
+        \end{aligned}
+    \]
+    \columnbreak \\
+    $$ A_2(A_2x, A_2y, A_2z) = (0.30,0.10,0.10) $$
+    \[
+        \begin{aligned}
+            R &= \sqrt{x^2+y^2+z^2} \\
+            &=\sqrt{0.30^2+0.10^2+0.10^2} \\
+            &=0.3317 \\
+            \theta &= \tan^{-1}\left(\frac{\sqrt{x^2+y^2}}{z}\right) \\
+            &= \tan^{-1}\left(\frac{\sqrt{0.30^2+0.10^2}}{0.10}\right) \\
+            &= 1.2645 \ \text{rad} \\
+            \Phi &= \tan^{-1}\left(y/x\right) \\
+            &=\tan^{-1}\left(0.10/0.30\right) \\
+            &=0.3218 \ \text{rad}
+        \end{aligned}
+    \]
+\end{multicols}
+$$ A_1(R,\theta,\Phi) = 0.8062\hat{R} + \frac{\pi}{2}\hat{\theta} + 1.0517\hat{\Phi}$$
+$$ A_2(R,\theta,\Phi) = 0.3317\hat{R} + 1.2645\hat{\theta} + 0.3218\hat{\Phi}$$
+Find the cross product between the so transformed $A_1$ and $A_2$. \\ 
+\[
+    \begin{aligned}
+        A_1 \times A_2 &= A_1\hat{R} \times A_2\hat{\theta} + A_1\hat{R} \times A_2\hat{\Phi} + A_1\hat{\theta} \times A_2\hat{R} + A_1\hat{\theta} \times A_2\hat{\Phi} \\
+        &= 0.1882\hat{R} + 2.6988\hat{\theta} - 0.5192\hat{\Phi}
+    \end{aligned}    
+\]
+Transform the so found cross product into rectangular component form. \\
+\[
+    (A_1 \times A_2)_{RCS} = 0.07\hat{x} - 0.04\hat{y} - 0.17\hat{z}     
+\]
+The cross product obtained in the rectangular coordinate system is the same cross product that was calculated in the spherical coordiante system.
+\end{document}
